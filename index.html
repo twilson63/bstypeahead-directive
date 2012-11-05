@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>demo</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <div ng-app="ngApp">
+      <div ng-controller="fooCtrl">
+        <input type="text" ng-model="foo" bstypeahead='/data.json'></input>
+        <div class="hero-unit">
+          <h1>{{foo}}</h1>
+        </div>
+        <input type="text" id="baz"></input>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.2/angular.min.js"></script>
+    <script src="/bootstrap-typeahead.js"></script>
+    <script src="/bs-typeahead.directive.js"></script>
+    <script>
+    var app = angular.module('ngApp', ['bootstrap'])
+    app.controller('fooCtrl', function($scope){
+      $scope.foo = 4;
+    });
+    
+    $(function() {
+      $('#baz').typeahead({ ajax: {
+          url: '/data.json',
+          triggerLength: 1,
+          method: 'get'
+        }
+      });
+    })
+    </script>
+  </body>
+</html>
