@@ -1,39 +1,54 @@
 <!doctype html>
 <html>
   <head>
-    <title>demo</title>
+    <title>Typeahead Directive</title>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <div ng-app="ngApp">
-      <div ng-controller="fooCtrl">
-        <input type="text" ng-model="foo" bstypeahead='/data.json'></input>
-        <div class="hero-unit">
-          <h1>{{foo}}</h1>
+    <div class="container">
+      <div class="hero-unit">
+        <h1>BSTypeahead Directive Example</h1>
+        <p style="margin-top: 20px;"><a href="https://github.com/twilson63/bstypeahead-directive">https://github.com/twilson63/bstypeahead-directive</a></p>
+      </div>
+      <div class="span4" ng-app="app">
+        <div ng-controller="Main">
+          <legend>Example:</legend>
+          <label>Enter your favorite city:</label>
+          <input type="text" ng-model="cityId" typeahead='/data.json'></input>
+          <h3>City Id: {{cityId}}</h3>
         </div>
-        <input type="text" id="baz"></input>
+      </div>
+      <div class="span7">
+        <pre>
+&lt;div class=&quot;span4&quot; ng-app=&quot;app&quot;&gt;
+  &lt;div ng-controller=&quot;Main&quot;&gt;
+    &lt;legend&gt;Example:&lt;/legend&gt;
+    &lt;label&gt;Enter your favorite city:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; ng-model=&quot;cityId&quot; typeahead=&#x27;/data.json&#x27;&gt;&lt;/input&gt;
+    &lt;h3&gt;City Id: {{cityId}}&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var app = angular.module(&#x27;app&#x27;, [&#x27;ngTypeahead&#x27;])
+app.controller(&#x27;Main&#x27;, function($scope){
+  $scope.cityId = 4;
+});
+&lt;/script&gt;
+
+        </pre>
       </div>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.2/angular.min.js"></script>
-    <script src="/bootstrap-typeahead.js"></script>
-    <script src="/bs-typeahead.directive.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.min.js"></script>
+    <script src="//raw.github.com/tcrosen/twitter-bootstrap-typeahead/master/js/bootstrap-typeahead.js"></script>
+    <script src="/ng-typeahead.js"></script>
     <script>
-    var app = angular.module('ngApp', ['bootstrap'])
-    app.controller('fooCtrl', function($scope){
-      $scope.foo = 4;
+    var app = angular.module('app', ['ngTypeahead'])
+    app.controller('Main', function($scope){
+      $scope.cityId = 4;
     });
-    
-    $(function() {
-      $('#baz').typeahead({ ajax: {
-          url: '/data.json',
-          triggerLength: 1,
-          method: 'get'
-        }
-      });
-    })
     </script>
   </body>
 </html>

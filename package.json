@@ -1,0 +1,15 @@
+{
+  "name": "ngTypeahead",
+  "version": "0.0.2",
+  "description": "An angularjs typeahead directive",
+  "main": "ng-typeahead.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twilson63/bstypeahead-directive.git"
+  },
+  "author": "Tom Wilson",
+  "license": "MIT"
+}
