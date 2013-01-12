@@ -9,8 +9,7 @@ A simple directive wrapper around the Bootstrap Typeahead component
 
 ## Goal
 
-The goal of this project is to have straight forward typeahead component using angular, that can be forked and customized by
-developers wanting more specific use cases for their typeahead component.
+The goal of this project is to have a straight forward typeahead component example using angular, that can be forked and customized by developers wanting more specific use cases for their typeahead component.
 
 ## Usage
 
